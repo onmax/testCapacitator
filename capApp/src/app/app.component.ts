@@ -16,9 +16,13 @@ const { Geolocation, Modals} = Plugins;
 })
 export class AppComponent implements OnInit{
   coords: Coordinates;
+  location: String;
   ngOnInit(){
     this.watchPosition().subscribe(coords=>
       this.coords = coords
+    );
+    this.watchPosition().subscribe(coords=>
+      this.location = "LAT" + coords.latitude + "LONG:" + coords.longitude
     );
   }
 
@@ -31,7 +35,7 @@ export class AppComponent implements OnInit{
   showPosition(){
     const lat = this.coords.latitude;
     const lon = this.coords.longitude;
-    const alerta = Modals.alert ({
+    Modals.alert ({
       title: "Tú posición",
       message: `Estas en Latitud: ${lat}. Longitud: ${lon}`,
     });
