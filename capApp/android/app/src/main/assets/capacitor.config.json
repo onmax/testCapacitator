@@ -1,0 +1,6 @@
+{
+  "appId": "com.max.capapp",
+  "appName": "capApp",
+  "bundledWebRuntime": false,
+  "webDir": "dist"
+}
